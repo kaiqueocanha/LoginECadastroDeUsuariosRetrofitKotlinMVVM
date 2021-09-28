@@ -10,15 +10,16 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface RetrofitService {
 
     @GET("recipes")
-    fun getAllRecipes(): Call<List<Recipe>>
+    fun getAllRecipes(@Header("Authorization") authorization: String): Call<List<Recipe>>
 
     @POST("recipes")
-    fun saveRecipe(@Body recipe: Recipe): Call<ResponseBody>
+    fun saveRecipe(@Header("Authorization") authorization: String, @Body recipe: Recipe): Call<ResponseBody>
 
     @POST("register")
     fun saveUser(@Body user: User): Call<ResponseBody>

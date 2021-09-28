@@ -5,8 +5,8 @@ import com.ocanha.retrofitcomkotlin.rest.RetrofitService
 
 class RecipeRepository constructor(private val retrofitService: RetrofitService) {
 
-    fun saveRecipe(recipe: Recipe) = retrofitService.saveRecipe(recipe)
+    fun saveRecipe(token: String, recipe: Recipe) = retrofitService.saveRecipe(token, recipe)
 
-    fun getAllRecipes() = retrofitService.getAllRecipes()
+    fun getAllRecipes(token: String) = retrofitService.getAllRecipes(token)
 
 }

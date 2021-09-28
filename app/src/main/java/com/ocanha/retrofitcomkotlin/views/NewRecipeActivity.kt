@@ -1,17 +1,16 @@
 package com.ocanha.retrofitcomkotlin.views
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.ocanha.retrofitcomkotlin.databinding.ActivityNewRecipeBinding
 import com.ocanha.retrofitcomkotlin.model.Recipe
+import com.ocanha.retrofitcomkotlin.model.UserSession
 import com.ocanha.retrofitcomkotlin.repositories.RecipeRepository
 import com.ocanha.retrofitcomkotlin.rest.RetrofitService
-import com.ocanha.retrofitcomkotlin.viewmodel.main.MainViewModel
-import com.ocanha.retrofitcomkotlin.viewmodel.main.MainViewModelFactory
 import com.ocanha.retrofitcomkotlin.viewmodel.newrecipe.NewRecipeViewModel
 import com.ocanha.retrofitcomkotlin.viewmodel.newrecipe.NewRecipeViewModelFactory
 
@@ -109,7 +108,7 @@ class NewRecipeActivity : AppCompatActivity() {
 
                 loadingView.show()
                 fabNewRecipe.visibility = View.GONE
-                viewModel.saveRecipe(recipe)
+                viewModel.saveRecipe(UserSession.getToken(), recipe)
 
             }
 

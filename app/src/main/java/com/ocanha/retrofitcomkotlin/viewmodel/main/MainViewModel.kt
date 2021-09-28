@@ -14,9 +14,9 @@ class MainViewModel constructor(private val repository: RecipeRepository) : View
     val recipesList = MutableLiveData<List<Recipe>>()
     val errorMessage = MutableLiveData<String>()
 
-    fun getAllRecipes() {
+    fun getAllRecipes(token : String) {
 
-        val request = this.repository.getAllRecipes()
+        val request = this.repository.getAllRecipes(token)
         request.enqueue(object : Callback<List<Recipe>> {
             override fun onResponse(call: Call<List<Recipe>>, response: Response<List<Recipe>>) {
 

@@ -14,9 +14,9 @@ class NewRecipeViewModel constructor(private val repository: RecipeRepository) :
 
     val status = MutableLiveData<Boolean>()
 
-    fun saveRecipe(recipe: Recipe) {
+    fun saveRecipe(token: String, recipe: Recipe) {
 
-        val request = repository.saveRecipe(recipe)
+        val request = repository.saveRecipe(token, recipe)
         request.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
 

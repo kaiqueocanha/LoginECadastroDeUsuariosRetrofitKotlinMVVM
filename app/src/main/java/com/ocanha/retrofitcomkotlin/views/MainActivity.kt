@@ -2,6 +2,7 @@ package com.ocanha.retrofitcomkotlin.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ocanha.retrofitcomkotlin.adapters.RecipesAdapter
 import com.ocanha.retrofitcomkotlin.databinding.ActivityMainBinding
 import com.ocanha.retrofitcomkotlin.model.Recipe
+import com.ocanha.retrofitcomkotlin.model.UserSession
 import com.ocanha.retrofitcomkotlin.repositories.RecipeRepository
 import com.ocanha.retrofitcomkotlin.rest.RetrofitService
 import com.ocanha.retrofitcomkotlin.viewmodel.main.MainViewModel
@@ -62,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         this.binding.loadingView.show()
-        viewModel.getAllRecipes()
+        viewModel.getAllRecipes(UserSession.getToken())
 
     }
 
