@@ -1,6 +1,7 @@
 package com.ocanha.retrofitcomkotlin.rest
 
 import com.ocanha.retrofitcomkotlin.model.Recipe
+import com.ocanha.retrofitcomkotlin.model.User
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -16,6 +17,9 @@ interface RetrofitService {
 
     @POST("recipes")
     fun saveRecipe(@Body recipe: Recipe): Call<ResponseBody>
+
+    @POST("register")
+    fun saveUser(@Body user: User): Call<ResponseBody>
 
     companion object {
 

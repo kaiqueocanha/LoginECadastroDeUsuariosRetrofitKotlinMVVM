@@ -1,6 +1,5 @@
 package com.ocanha.retrofitcomkotlin.viewmodel.newrecipe
 
-import android.os.Handler
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ocanha.retrofitcomkotlin.model.Recipe
