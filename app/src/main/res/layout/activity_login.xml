@@ -30,4 +30,10 @@
         android:layout_height="wrap_content"
         android:text="Entrar" />
 
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar-se" />
+
 </LinearLayout>
