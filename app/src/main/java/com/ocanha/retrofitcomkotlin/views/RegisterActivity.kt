@@ -11,6 +11,9 @@ import com.ocanha.retrofitcomkotlin.databinding.ActivityRegisterBinding
 import com.ocanha.retrofitcomkotlin.model.User
 import com.ocanha.retrofitcomkotlin.repositories.UserRepository
 import com.ocanha.retrofitcomkotlin.rest.RetrofitService
+import com.ocanha.retrofitcomkotlin.utils.Validator.validateEmail
+import com.ocanha.retrofitcomkotlin.utils.Validator.validateName
+import com.ocanha.retrofitcomkotlin.utils.Validator.validatePassword
 import com.ocanha.retrofitcomkotlin.viewmodel.register.RegisterViewModel
 import com.ocanha.retrofitcomkotlin.viewmodel.register.RegisterViewModelFactory
 
@@ -38,7 +41,7 @@ class RegisterActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
 
-            if (edtName.text.toString().isEmpty() || edtName.text.toString().isBlank()) {
+            if (!validateName(edtName.text.toString())) {
 
                 edtName.error = "Preencha o nome completo"
                 edtName.requestFocus()
@@ -46,10 +49,7 @@ class RegisterActivity : AppCompatActivity() {
 
             }
 
-            //Existem formas melhores de se validar um e-mail. Isso é apenas um exemplo!
-            if (edtEmail.text.toString().isEmpty() || edtEmail.text.toString()
-                    .isBlank() || !edtEmail.text.toString().contains("@")
-            ) {
+            if (!validateEmail(edtEmail.text.toString())) {
 
                 edtEmail.error = "Preencha o email corretamente"
                 edtEmail.requestFocus()
@@ -57,7 +57,7 @@ class RegisterActivity : AppCompatActivity() {
 
             }
 
-            if (edtPassword.text.toString().isEmpty() || edtPassword.text.toString().isBlank()) {
+            if (!validatePassword(edtPassword.text.toString())) {
 
                 edtPassword.error = "Preencha a senha de acesso"
                 edtPassword.requestFocus()
